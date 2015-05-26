@@ -9,6 +9,13 @@ A Logscape App that allows you to monitor Filesystem changes and modification da
 
 This is the FileScannerApp-1.0 - originally designed to work with the Logscape monitoring system.
 
+QUICK START with Logscape:
+
+1. Download it all as a Zip.
+2. Go to the Lib folder, edit config.properties and add folder paths you want to monitor (using forward slashes!)
+3. Set the bundle time in seconds to your preferred frequency - change the hosts if you wish.
+4. Zip it all up as FileScannerApp-1.0 and deploy!
+
 This app is very simple. It looks in folders you designate and returns a log with the last modified time and the current size.
 The Logscape .config files are configured to extrapolate further information from this data, including the time since the file was changed.
 
