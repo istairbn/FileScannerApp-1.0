@@ -1,0 +1,15 @@
+<Bundle name="FileScannerApp" version="1.0" system="false">
+  <status>UNINSTALLED</status>
+  <owner>ben.newton@excelian.com</owner>
+  <services>
+    <Service>
+      <name>FileScanner</name>
+    	<resourceSelection>type containsAny hpc</resourceSelection>
+      <fork>true</fork>
+      <background>true</background>
+    	<instanceCount>-1</instanceCount>
+    	<pauseSeconds>900</pauseSeconds>
+      <script>FileScanner.groovy config.properties</script>
+  	</Service>  
+	</services>
+</Bundle>
