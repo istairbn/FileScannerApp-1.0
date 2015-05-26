@@ -4,7 +4,7 @@
   <services>
     <Service>
       <name>FileScanner</name>
-    	<resourceSelection>type containsAny hpc</resourceSelection>
+    	<resourceSelection>id=0</resourceSelection>
       <fork>true</fork>
       <background>true</background>
     	<instanceCount>-1</instanceCount>
