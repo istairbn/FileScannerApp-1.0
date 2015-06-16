@@ -18,7 +18,7 @@ if (propertiesFile.exists()){
     }
 }
 else{
-    println "No config.properties File Present in lib folder"
+    println "$now,FATAL, No config.properties File Present in lib folder"
     println System.getProperty("user.dir")
     return //1
 }
@@ -31,15 +31,20 @@ def targets = jsonSlurper.parseText(source)
 assert targets instanceof Map
 def fileList = []
 targets.each { folder ->
+    def folderList = []
     File file = new File(folder.value)
     if (file.exists()) {
         file.eachFile{it ->
             def modified = new Date(it.lastModified()).format("yyyy/MM/dd HH:mm:ss:SSS ZZZ")
             def size = it.length()
-            println "$now,INFO,Name:$folder.key,File:$it.absolutePath,Filename:$it.name,ModifiedDate:$modified,Bytes:$size"
+            println "$now,INFO, { \"Name\":\"$folder.key\",\"File\":\"$it.absolutePath\",\"Filename\":\"$it.name\",\"ModifiedDate\":\"$modified\",\"Bytes\":\"$size\" }"
+            fileList << it.absolutePath
+            folderList << it.absolutePath
         }
-        //fileList << file.absolutePath
-    } else {
-        println "$now,WARN,Name:$folder.key,File:$folder.value,fileNotFoundException:Missing File"
+    println "$now,INFO,{ \"Name\":\"$folder.key\",\"File\":\"$folder.value\",\"FolderFileCount\":\"$folderList.count\" }"
+    } 
+    else {
+        println "$now,WARN, { \"Name\":\"$folder.key\",\"File\":\"$folder.value\",\"fileNotFoundException\":\"Missing File\" }"
     }
 }
+println "$now,INFO, TotalFileCount:$fileList.size"
