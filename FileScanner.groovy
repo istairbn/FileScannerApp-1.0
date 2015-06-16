@@ -41,7 +41,7 @@ targets.each { folder ->
             fileList << it.absolutePath
             folderList << it.absolutePath
         }
-    println "$now,INFO,{ \"Name\":\"$folder.key\",\"File\":\"$folder.value\",\"FolderFileCount\":\"$folderList.count\" }"
+    println "$now,INFO,{ \"Name\":\"$folder.key\",\"File\":\"$folder.value\",\"FolderFileCount\":\"$folderList.size\" }"
     } 
     else {
         println "$now,WARN, { \"Name\":\"$folder.key\",\"File\":\"$folder.value\",\"fileNotFoundException\":\"Missing File\" }"
