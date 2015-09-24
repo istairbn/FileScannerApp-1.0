@@ -11,6 +11,7 @@ Properties properties
 properties = new Properties()
 File propertiesFile
 propertiesFile = new File(props)
+def now = new Date().format("yyyy/MM/dd HH:mm:ss:SSS ZZZ")
 
 if (propertiesFile.exists()){
     propertiesFile.withInputStream{
@@ -23,7 +24,7 @@ else{
     return //1
 }
 
-def now = new Date().format("yyyy/MM/dd HH:mm:ss:SSS ZZZ")
+
 
 def jsonSlurper = new JsonSlurper()
 def source = properties.targets
@@ -41,7 +42,7 @@ targets.each { folder ->
             fileList << it.absolutePath
             folderList << it.absolutePath
         }
-    println "$now,INFO,{ \"Name\":\"$folder.key\",\"File\":\"$folder.value\",\"FolderFileCount\":\"$folderList.size\" }"
+    println "$now,INFO, { \"Name\":\"$folder.key\",\"File\":\"$folder.value\",\"FolderFileCount\":\"$folderList.size\" }"
     } 
     else {
         println "$now,WARN, { \"Name\":\"$folder.key\",\"File\":\"$folder.value\",\"fileNotFoundException\":\"Missing File\" }"
