@@ -5,7 +5,7 @@ Contact: ben.newton@excelian.com
  */
 import groovy.json.*
 
-def props = args.length > 0 ? ".\\lib\\" + args[0] : "\\lib\\config.properties"
+def props = args.length > 0 ? "./lib/" + args[0] : "/lib/config.properties"
 
 Properties properties
 properties = new Properties()
