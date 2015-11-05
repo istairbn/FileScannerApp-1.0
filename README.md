@@ -3,7 +3,6 @@ A Logscape App that allows you to monitor Filesystem changes and modification da
 ######################################################################################################
 # FileScannerApp-1.0
 # Creator: Benjamin Newton
-# Contact: ben.newton@excelian.com
 # Intial Release Date: 26/05/2015
 ######################################################################################################
 
